@@ -1,35 +1,35 @@
 # Skills
 
-opencode skill collection
+Colección de skills para opencode
 
 ## security-audit
 
-### Contents
+### Contenido
 
-- **`security-audit`** — final security audit gate. It is invoked at the end of a feature or an important change, before closing it.
+- **`security-audit`** — puerta de auditoría de seguridad final. Se invoca al final de una funcionalidad o de un cambio importante, antes de cerrarlo.
 
-  - **Static**, stack-agnostic review (base: OWASP ASVS/Top 10 + CCN-STIC-140 Annex F.1).
-  - Walks the code in scope through areas A-M (authentication, authorization, injection, XSS, CSRF, TLS, cryptography, sensitive data, logging, configuration, dependencies, integrity, error handling).
-  - Produces a markdown report with findings grouped by severity (Critical, High, Medium, Low) and a verdict: `APPROVED`, `WITH OBSERVATIONS` or `REJECTED`.
-  - **Does not modify code**: it only reports findings and proposes remediations.
+  - Revisión **estática** y agnóstica del stack (base: OWASP ASVS/Top 10 + CCN-STIC-140 Anexo F.1).
+  - Recorre el código en ámbito por las áreas A-M (autenticación, autorización, inyección, XSS, CSRF, TLS, criptografía, datos sensibles, registro, configuración, dependencias, integridad, manejo de errores).
+  - Produce un informe en markdown con los hallazgos agrupados por severidad (Crítica, Alta, Media, Baja) y un veredicto: `APPROVED`, `WITH OBSERVATIONS` o `REJECTED`.
+  - **No modifica el código**: solo reporta hallazgos y propone remediaciones.
 
-### How to use it
+### Cómo usarla
 
-The skill accepts an optional argument:
+La skill acepta un argumento opcional:
 
-- Directory path: audit only that tree.
-- File path: audit only that file.
-- No argument: audit the whole repository (or the whole project if there is no git).
+- Ruta de directorio: audita solo ese árbol.
+- Ruta de archivo: audita solo ese archivo.
+- Sin argumento: audita todo el repositorio (o todo el proyecto si no hay git).
 
-Invocation examples (from the opencode session):
+Ejemplos de invocación (desde la sesión de opencode):
 
-- `security-audit` — audits the whole repository.
-- `security-audit <path/subtree>` — only that subtree, e.g. a `src/` folder.
-- `security-audit <path/file>` — only that file, e.g. a `package.json` manifest.
+- `security-audit` — audita todo el repositorio.
+- `security-audit <ruta/subárbol>` — solo ese subárbol, p. ej. una carpeta `src/`.
+- `security-audit <ruta/archivo>` — solo ese archivo, p. ej. un manifiesto `package.json`.
 
-Always inside the workspace: paths that escape (`..`, external absolute paths, symlinks) are rejected.
+Siempre dentro del workspace: las rutas que escapen (`..`, rutas absolutas externas, symlinks) se rechazan.
 
-Output example (verdict):
+Ejemplo de salida (veredicto):
 
 ```
 ## Verdict
