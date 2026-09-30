@@ -1,4 +1,4 @@
-# Skills
+# Skill-Base
 
 Colección de skills para opencode
 
