@@ -10,7 +10,7 @@ opencode skill collection
 
   - **Static**, stack-agnostic review (base: OWASP ASVS/Top 10 + CCN-STIC-140 Annex F.1).
   - Walks the code in scope through areas A-M (authentication, authorization, injection, XSS, CSRF, TLS, cryptography, sensitive data, logging, configuration, dependencies, integrity, error handling).
-  - Produces a markdown report with findings grouped by severity (Critical, High, Medium, Low) and a verdict: `APROBADO`, `CON OBSERVACIONES` or `RECHAZADO`.
+  - Produces a markdown report with findings grouped by severity (Critical, High, Medium, Low) and a verdict: `APPROVED`, `WITH OBSERVATIONS` or `REJECTED`.
   - **Does not modify code**: it only reports findings and proposes remediations.
 
 ### How to use it
@@ -32,8 +32,8 @@ Always inside the workspace: paths that escape (`..`, external absolute paths, s
 Output example (verdict):
 
 ```
-## Veredicto
-- RECHAZADO: hay al menos un hallazgo Critical o High.
-- CON OBSERVACIONES: sin Critical ni High, pero hay al menos un Medium o Low.
-- APROBADO: no hay hallazgos en ninguna severidad.
+## Verdict
+- REJECTED: there is at least one Critical or High finding.
+- WITH OBSERVATIONS: no Critical or High, but there is at least one Medium or Low.
+- APPROVED: there are no findings at any severity.
 ```
